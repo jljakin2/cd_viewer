@@ -1,3 +1,6 @@
+import styled from "styled-components";
+import FolderIcon from "./Icons/FolderIcon";
+
 export default function FolderCard() {
-  return <div>folderCard</div>;
+  return <FolderIcon />;
 }

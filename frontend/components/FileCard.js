@@ -1,3 +1,13 @@
+import styled from "styled-components";
+
+import FileIcon from "./Icons/FileIcon";
+
+const FileCardStyles = styled.div``;
+
 export default function FileCard() {
-  return <div>fileCard</div>;
+  return (
+    <FileCardStyles>
+      <FileIcon />
+    </FileCardStyles>
+  );
 }
