@@ -1,47 +1,59 @@
 import styled from "styled-components";
+import Link from "next/link";
 
 import FolderCard from "../components/FolderCard";
 import FileCard from "../components/FileCard";
-import Search from "../components/Search";
-import CardViewIcon from "../components/Icons/CardViewIcon";
-import ListViewIcon from "../components/Icons/ListViewIcon";
 
-const HomeStyles = styled.main`
-  padding: 4rem 5rem;
+import data from "../lib/data.json";
 
+const HomeStyles = styled.section`
   & section:not(:last-child) {
     margin-bottom: 5rem;
+  }
+
+  h1 {
+    margin-bottom: 2.5rem;
+  }
+
+  .card-container {
+    display: flex;
+
+    & > *:not(:last-child) {
+      margin-right: 5.75rem;
+    }
   }
 `;
 
 export default function Home() {
+  const folders = data.folders.slice(0, 5);
+
+  const renderedFolders = folders.map(folder => {
+    return <FolderCard key={folder.id} {...folder} />;
+  });
+
   return (
     <HomeStyles>
       <section>
-        <Search />
-        <CardViewIcon />
-        <ListViewIcon />
-      </section>
-
-      <section>
         <h1>Recent Files</h1>
-        <FileCard />
-        <FileCard />
-        <FileCard />
+        <div className="card-container">
+          <FileCard name={"boat1"} />
+          <FileCard name={"boat2"} />
+          <FileCard name={"boat3"} />
+        </div>
       </section>
 
       <section>
         <h1>Folders</h1>
-        <FolderCard />
-        <FolderCard />
-        <FolderCard />
+        <div className="card-container">{renderedFolders}</div>
       </section>
 
       <section>
         <h1>Boats</h1>
-        <FolderCard />
-        <FolderCard />
-        <FolderCard />
+        <div className="card-container">
+          <FileCard name={"boat1"} />
+          <FileCard name={"boat2"} />
+          <FileCard name={"boat3"} />
+        </div>
       </section>
     </HomeStyles>
   );

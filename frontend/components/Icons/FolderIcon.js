@@ -4,6 +4,9 @@ const FolderIconStyles = styled.div`
   border: 2px solid var(--greyWhite);
   border-radius: 0.3125rem;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
 
   width: 5.5rem;
@@ -23,6 +26,10 @@ const FolderIconStyles = styled.div`
   }
 `;
 
-export default function FolderIcon() {
-  return <FolderIconStyles />;
+export default function FolderIcon({ num }) {
+  return (
+    <FolderIconStyles>
+      <p>{num}</p>
+    </FolderIconStyles>
+  );
 }
