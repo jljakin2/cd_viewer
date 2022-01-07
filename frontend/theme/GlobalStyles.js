@@ -43,6 +43,52 @@ const GlobalStyles = createGlobalStyle`
       color: var(--greyWhite);
       font-family: "Inter", --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     }
+
+    h1 {
+      font-weight: bold;
+      font-size: 2rem;
+      line-height: 2rem;
+      letter-spacing: 0.01em;
+    }
+
+    h2 {
+      font-weight: bold;
+      font-size: 1.75rem;
+      line-height: 1.75rem;
+      letter-spacing: 0.01em;
+    }
+
+    h3 {
+      font-weight: bold;
+      font-size: 1.5rem;
+      line-height: 1.5rem;
+      letter-spacing: 0.01em;
+    }
+
+    h4 {
+      font-weight: bold;
+      font-size: 1.375rem;
+      line-height: 2rem;
+      letter-spacing: 0.01em;
+    }
+
+    h5 {
+      font-weight: 600;
+      font-size: 1.25rem;
+      line-height: 1.8125rem;
+      letter-spacing: 0.01em;
+    }
+
+    p {
+      font-weight: normal;
+      font-size: 1rem;
+      line-height: 1.625rem;
+      letter-spacing: 0.01em;
+    }
+
+    .body-light {
+      font-weight: 300;
+    }
 `;
 
 export default GlobalStyles;

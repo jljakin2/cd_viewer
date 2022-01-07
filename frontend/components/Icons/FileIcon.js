@@ -3,6 +3,8 @@ import styled from "styled-components";
 const FileIconStyles = styled.div`
   border: 2px solid var(--greyWhite);
   border-radius: 0.3125rem;
+  background: ${({ isActive }) =>
+    isActive ? "var(--greyWhite)" : "transparent"};
 
   position: relative;
 
@@ -23,6 +25,6 @@ const FileIconStyles = styled.div`
   }
 `;
 
-export default function FileIcon() {
-  return <FileIconStyles />;
+export default function FileIcon({ isActive }) {
+  return <FileIconStyles isActive={isActive} />;
 }

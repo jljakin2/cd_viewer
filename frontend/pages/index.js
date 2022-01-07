@@ -25,7 +25,7 @@ const HomeStyles = styled.section`
 `;
 
 export default function Home() {
-  const folders = data.folders.slice(0, 5);
+  const folders = data.folders.slice(0, 5); // only take 5 then allow for the user to "see more"
 
   const renderedFolders = folders.map(folder => {
     return <FolderCard key={folder.id} {...folder} />;

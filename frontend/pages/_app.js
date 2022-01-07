@@ -1,10 +1,13 @@
 import Page from "../components/Page";
+import { PreviewStateProvider } from "../lib/preview";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Page>
-      <Component {...pageProps} />
-    </Page>
+    <PreviewStateProvider>
+      <Page>
+        <Component {...pageProps} />
+      </Page>
+    </PreviewStateProvider>
   );
 }
 
