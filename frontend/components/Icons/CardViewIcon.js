@@ -26,3 +26,7 @@ export default function CardViewIcon({ active }) {
     </CardViewIconStyles>
   );
 }
+
+CardViewIcon.defaultProps = {
+  active: false,
+};

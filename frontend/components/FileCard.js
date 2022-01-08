@@ -26,7 +26,7 @@ export default function FileCard({ name, id }) {
   const router = useRouter();
   const { pathname } = router;
 
-  const { handleFileClick, currentSelected } = usePreview();
+  const { handleFileClick, currentSelected } = usePreview(); // context API to handle preview
 
   const [isActive, setIsActive] = useState(currentSelected === id);
 
@@ -34,6 +34,8 @@ export default function FileCard({ name, id }) {
     setIsActive(currentSelected === id);
   }, [currentSelected]);
 
+  // if the user is on the homepage just show the card that allows the user to click through
+  // otherwise, show the user a card that can be previewed
   return pathname === "/" ? (
     <Link href={"/viewer/file/123"}>
       <FileCardStyles data-name={id}>

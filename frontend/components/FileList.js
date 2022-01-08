@@ -27,11 +27,12 @@ const FileListStyles = styled.div`
 export default function FileList({ id, name, dateModified, size }) {
   const router = useRouter();
 
-  const { handleFileClick, currentSelected } = usePreview();
+  const { handleFileClick, currentSelected } = usePreview(); // context API to handle preview
 
   const [isActive, setIsActive] = useState(currentSelected === id);
 
   useEffect(() => {
+    // every time the currentSelected variable changes, check to see if isActive is true or false
     setIsActive(currentSelected === id);
   }, [currentSelected]);
 

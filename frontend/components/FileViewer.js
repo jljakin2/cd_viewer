@@ -1,9 +1,11 @@
 import { useState } from "react";
 import styled from "styled-components";
+
 import FileCard from "./FileCard";
 import CardViewIcon from "./Icons/CardViewIcon";
 import ListViewIcon from "./Icons/ListViewIcon";
 import FileList from "./FileList";
+
 import { usePreview } from "../lib/preview";
 
 const FileViewerStyles = styled.div`
@@ -59,7 +61,7 @@ const FileViewerStyles = styled.div`
 `;
 
 export default function FileViewer({ folderName, files }) {
-  const { showPreview } = usePreview();
+  const { showPreview } = usePreview(); // context API to handle preview
 
   const [isListView, setIsListView] = useState(false);
 

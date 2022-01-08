@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Link from "next/link";
 
 import FolderCard from "../components/FolderCard";
 import FileCard from "../components/FileCard";
@@ -25,7 +24,8 @@ const HomeStyles = styled.section`
 `;
 
 export default function Home() {
-  const folders = data.folders.slice(0, 5); // only take 5 then allow for the user to "see more"
+  // !====== REPLACE WITH DATA FROM API =====
+  const folders = data.folders.slice(0, 5); // TODO: only take 5 then allow for the user to "see more"
 
   const renderedFolders = folders.map(folder => {
     return <FolderCard key={folder.id} {...folder} />;

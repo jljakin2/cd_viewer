@@ -36,12 +36,14 @@ export default function Viewer() {
   const router = useRouter();
   const { id } = router.query;
 
-  const { showPreview, closePreview, currentSelected } = usePreview();
+  const { showPreview, closePreview, currentSelected } = usePreview(); // context API to handle preview
 
+  // !====== REPLACE WITH DATA FROM API =====
   const currentFolder = data.folders.find(folder => folder.id === id);
-  const [currentFile, setCurrentFile] = useState({});
+  const [currentFile, setCurrentFile] = useState({}); // local state to keep track of the file that is selected for the preview
 
   useEffect(() => {
+    // set the currentFile state whenever the currentSelected variable from the preview context API is changed
     const selection = currentFolder?.files.find(
       file => file.id === currentSelected
     );
@@ -50,6 +52,7 @@ export default function Viewer() {
   }, [currentSelected]);
 
   useEffect(() => {
+    // make sure we close the preview whenever the component is unmounted
     return function cleanup() {
       closePreview();
     };

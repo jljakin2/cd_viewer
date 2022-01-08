@@ -39,6 +39,7 @@ export default function FoldersSidebar() {
   const router = useRouter();
   const { id } = router.query;
 
+  // !====== REPLACE WITH DATA FROM API =====
   const folders = data.folders;
 
   const renderedFolders = folders.map(folder => {
