@@ -168,6 +168,15 @@ const GlobalStyles = createGlobalStyle`
     .highlight-text {
       color: var(--primary);
     }
+
+    button {
+      background: var(--primary);
+      border: none;
+      color: var(--white);
+      font-size: 1rem;
+
+      padding: 0.5rem 1rem;
+    }
 `;
 
 export default GlobalStyles;

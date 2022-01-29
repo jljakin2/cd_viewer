@@ -1,9 +1,10 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import Head from "next/head";
 
 import GlobalStyles from "../theme/GlobalStyles";
 
-// import NavMenu from "./NavMenu";
+import Nav from "./Nav";
 // import Header from "./Header";
 
 const MainStyles = styled.main`
@@ -20,7 +21,9 @@ export default function Page({ children }) {
   return (
     <>
       <GlobalStyles />
-      {/* <NavMenu /> */}
+      <header>
+        <Nav />
+      </header>
       <MainStyles>
         {/* <Header /> */}
         {children}
