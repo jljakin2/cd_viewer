@@ -1,12 +1,202 @@
 import Head from "next/head";
 import Link from "next/link";
+import styled from "styled-components";
 
 import ContactForm from "../components/ContactForm";
 import FeatureCard from "../components/FeatureCard";
-import HeroProductPreview from "../components/HeroProductPreview";
 import FullLogo from "../components/Icons/FullLogo";
 
 import { features } from "../lib/config";
+
+const MainStyles = styled.main`
+  padding: 0 1.5rem 4rem 1.5rem;
+
+  & section:not(:last-child, :first-child) {
+    margin-bottom: 10rem;
+  }
+
+  .section-title {
+    text-align: center;
+
+    position: relative;
+
+    margin-bottom: 4rem;
+  }
+
+  .section-title::after {
+    content: "";
+    background: var(--primary);
+
+    position: absolute;
+    bottom: -0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 4rem;
+    height: 0.25rem;
+  }
+`;
+
+const HeroStyles = styled.section`
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+
+  width: 100%;
+  height: 100vh;
+
+  h1 {
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    color: var(--grey200);
+
+    margin-bottom: 7rem;
+  }
+
+  p {
+    margin-bottom: 0.5rem;
+  }
+
+  form {
+    position: relative;
+  }
+
+  input {
+    padding: 1rem 8rem 1rem 1rem;
+  }
+
+  #signup-btn {
+    border-radius: 0 0.375rem 0.375rem 0;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    padding: 1rem 2rem;
+  }
+
+  small {
+    position: absolute;
+    bottom: -1.5rem;
+    left: 1rem;
+  }
+`;
+
+const FeaturesStyles = styled.section`
+  text-align: center;
+
+  width: 100%;
+
+  & div:not(:last-child) {
+    margin-bottom: 4rem;
+  }
+
+  .card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
+const PartnerStyles = styled.section`
+  text-align: center;
+
+  p {
+    color: var(--grey300);
+  }
+`;
+
+const ApplyStyles = styled.section`
+  text-align: center;
+
+  & *:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  p {
+    color: var(--grey300);
+  }
+
+  button {
+    width: 50%;
+  }
+`;
+
+const ContactStyles = styled.section`
+  .body--regular {
+    text-align: center;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  p {
+    color: var(--grey300);
+
+    margin-bottom: 3rem;
+  }
+`;
+
+const FooterStyles = styled.footer`
+  background: var(--grey700);
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 2rem 1.5rem;
+
+  .footer-section:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  svg {
+    margin-bottom: 1.5rem;
+  }
+
+  .body--large {
+    margin-bottom: 0.5rem;
+  }
+
+  .link {
+    text-decoration: none;
+    color: var(--grey300);
+    cursor: pointer;
+
+    position: relative;
+
+    transition: all 0.2s ease-out;
+
+    /* &::after {
+      content: "";
+      background: var(--white);
+
+      position: absolute;
+      bottom: -0.25rem;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: all 0.2s ease-out;
+
+      width: 0%;
+      height: 1px;
+    } */
+
+    &:hover {
+      color: var(--white);
+    }
+
+    /* &:hover &::after {
+      width: 100%;
+    } */
+  }
+`;
 
 export default function Home() {
   const renderedFeatures = features.map(feature => {
@@ -27,10 +217,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <section>
-          <HeroProductPreview />
-
+      <MainStyles>
+        <HeroStyles id="hero">
           <h1 className="display">
             Welcome to the <span className="highlight-text">3D Revolution</span>
           </h1>
@@ -39,27 +227,28 @@ export default function Home() {
           </h2>
           <p className="body--regular">Launching Spring 2022</p>
           <form>
-            <input type="email" />
-            <button>Sign up</button>
+            <input type="email" placeholder="Be the first to know..." />
+            <button id="signup-btn">Sign up</button>
+            <small className="body--small error">Error</small>
           </form>
-        </section>
+        </HeroStyles>
 
-        <section id="features">
-          <h1 className="heading">Features</h1>
-          {renderedFeatures}
-        </section>
+        <FeaturesStyles id="features">
+          <h1 className="heading section-title">Features</h1>
+          <div className="card-container">{renderedFeatures}</div>
+        </FeaturesStyles>
 
-        <section id="partners">
-          <h1 className="heading">Partners</h1>
+        <PartnerStyles id="partners">
+          <h1 className="heading section-title">Partners</h1>
           <p className="body--regular">
             AFWERX · Harvard · MIT · US Navy · US Air Force · Google for
             Startups · Penfed Foundation · Mass Challenge · Leica · National
             Security Innovation Network
           </p>
-        </section>
+        </PartnerStyles>
 
-        <section id="apply">
-          <h1 className="heading">Join Our Team</h1>
+        <ApplyStyles id="apply">
+          <h1 className="heading section-title">Join Our Team</h1>
           <p className="body--regular">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero,
             quidem!
@@ -71,40 +260,41 @@ export default function Home() {
           <a href="#">
             <button>See open roles</button>
           </a>
-        </section>
+        </ApplyStyles>
 
-        <section id="contact">
-          <h1 className="heading">Contact Us</h1>
+        <ContactStyles id="contact">
+          <h1 className="heading section-title">Contact Us</h1>
           <p className="body--regular">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
             sunt quis, ipsum debitis pariatur cum nobis reiciendis? Nesciunt,
             voluptas aperiam.
           </p>
           <ContactForm />
-        </section>
-      </main>
+        </ContactStyles>
+      </MainStyles>
 
-      <footer>
+      <FooterStyles>
         <FullLogo />
 
         <div className="footer-section">
           <p className="body--large">Social</p>
-          <a href="https://www.linkedin.com/company/candelytics/">
-            <p className="body--regular">LinkedIn</p>
+          <a
+            href="https://www.linkedin.com/company/candelytics/"
+            className="link">
+            <p className="body--regular link">LinkedIn</p>
           </a>
         </div>
 
         <div className="footer-section">
           <p className="body--large">Resources</p>
-
           <Link href="/privacy">
-            <p className="body--regular">Privacy Policy</p>
+            <p className="body--regular link">Privacy Policy</p>
           </Link>
           <Link href="/terms">
-            <p className="body--regular">Terms of Use</p>
+            <p className="body--regular link">Terms of Use</p>
           </Link>
         </div>
-      </footer>
+      </FooterStyles>
     </>
   );
 }

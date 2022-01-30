@@ -1,8 +1,33 @@
 import styled from "styled-components";
 
+const FormStyles = styled.form`
+  background: var(--grey700);
+  border-radius: 0.375rem;
+
+  padding: 2rem 1.5rem;
+
+  & .form-control:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  .form-control {
+    position: relative;
+  }
+
+  small {
+    position: absolute;
+    bottom: -1.25rem;
+    left: 1rem;
+  }
+
+  fieldset {
+    margin-bottom: 3rem;
+  }
+`;
+
 export default function ContactForm() {
   return (
-    <form>
+    <FormStyles>
       <fieldset>
         <div className="form-control">
           <input
@@ -13,7 +38,7 @@ export default function ContactForm() {
             //   onChange={handleChange}
           />
           {/* {errors.name && <Error>{errors.name}</Error>} */}
-          <p className="body--small">error</p>
+          <small className="body--small error">error</small>
         </div>
         <div className="form-control">
           <input
@@ -38,7 +63,7 @@ export default function ContactForm() {
         <div className="form-control">
           <textarea
             placeholder="Message"
-            rows="15"
+            rows="10"
             cols="50"
             name="message"
             // value={values.message}
@@ -54,6 +79,6 @@ export default function ContactForm() {
         )} */}
         Send message
       </button>
-    </form>
+    </FormStyles>
   );
 }

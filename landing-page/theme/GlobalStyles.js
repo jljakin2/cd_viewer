@@ -4,6 +4,9 @@ import media from "../lib/mediaQueries";
 const GlobalStyles = createGlobalStyle`
     :root{
       --primary: #E04D57;
+      --primary300: #E87880;
+      --primary200: #EFA4A9;
+
       
       --grey900: #181A1B;
       --grey800: #242729;
@@ -14,6 +17,7 @@ const GlobalStyles = createGlobalStyle`
       --grey300: #ADB4B8;
       --grey200: #C8CDD0;
       --grey100: #E4E6E7;
+      --grey50: #F1F2F3;
       --white: #FFFFFF;
 
 
@@ -38,6 +42,10 @@ const GlobalStyles = createGlobalStyle`
       background: var(--grey900);
       color: var(--white);
       font-family: "Roboto", --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    input, textarea, button {
+      border-radius: 0.375rem;
     }
 
 /* ===== H1 STYLES ===== */
@@ -165,18 +173,76 @@ const GlobalStyles = createGlobalStyle`
     }
 /* ========== ========== */ 
 
+/* ===== BUTTON STYLES ===== */
+  button {
+    background: var(--primary);
+    border: none;
+    color: var(--white);
+    font-size: 1rem;
+    font-family: "Roboto", --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    cursor: pointer;
+
+    padding: 1rem;
+
+    transition: all .2s ease-out;
+
+    &:hover {
+      background: var(--primary300);
+    }
+  }
+/* =========== ========== */
+
+/* ===== FORM STYLES ===== */
+    fieldset {
+      border: none;
+    }
+
+    input {
+      border: none;
+      font-size: 1rem;
+      color: var(--grey800);
+
+      width: 100%;
+      padding: 1rem;
+    }
+
+    input::placeholder {
+      font-family: "Roboto", --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      font-weight: 300;
+      font-size: 1rem;
+      line-height: 1.5rem;
+      color: var(--grey300);
+    }
+
+    textarea {
+      font-family: "Roboto", --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      font-size: 1rem;
+      line-height: 1.5rem;
+      color: var(--grey800);
+      resize: none;
+
+      width: 100%;
+      padding: 1rem;
+    }
+
+    textarea::placeholder {
+      font-family: "Roboto", --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      font-weight: 300;
+      font-size: 1rem;
+      line-height: 1.5rem;
+      color: var(--grey300);
+    }
+
+    .error {
+      color: var(--error)
+    }
+/* =========== ========== */
+
+/* ===== HELPERS ===== */
     .highlight-text {
       color: var(--primary);
     }
-
-    button {
-      background: var(--primary);
-      border: none;
-      color: var(--white);
-      font-size: 1rem;
-
-      padding: 0.5rem 1rem;
-    }
+/* =========== ========== */
 `;
 
 export default GlobalStyles;

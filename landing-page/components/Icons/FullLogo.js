@@ -3,8 +3,8 @@ import styled from "styled-components";
 export default function FullLogo() {
   return (
     <svg
-      width="135"
-      height="30"
+      width="185"
+      height="40"
       viewBox="0 0 135 30"
       fill="none"
       xmlns="http://www.w3.org/2000/svg">

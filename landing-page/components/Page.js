@@ -7,14 +7,6 @@ import GlobalStyles from "../theme/GlobalStyles";
 import Nav from "./Nav";
 // import Header from "./Header";
 
-const MainStyles = styled.main`
-  padding: 4rem 5rem;
-
-  & > *:first-child {
-    margin-bottom: 5rem;
-  }
-`;
-
 // The purpose of this component is to add the content that will be used as a template for all of the pages (e.g. nav, footer, etc.). Each individual page's content
 // will go in the {children} variable
 export default function Page({ children }) {
@@ -24,10 +16,8 @@ export default function Page({ children }) {
       <header id="home">
         <Nav />
       </header>
-      <MainStyles>
-        {/* <Header /> */}
-        {children}
-      </MainStyles>
+      {/* <Header /> */}
+      {children}
     </>
   );
 }

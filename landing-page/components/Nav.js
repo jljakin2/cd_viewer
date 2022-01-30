@@ -6,10 +6,48 @@ import FullLogo from "./Icons/FullLogo";
 import Hamburger from "./Icons/Hamburger";
 
 const NavStyles = styled.nav`
+  background: var(--grey800);
+
   position: fixed;
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  padding: 1rem 1.5rem;
+
+  z-index: 1000;
+
+  svg {
+    cursor: pointer;
+  }
+
+  ul {
+    list-style: none;
+
+    display: flex;
+
+    margin-left: auto;
+  }
+
+  li {
+    cursor: pointer;
+  }
+
+  p {
+    transition: all 0.2s ease-out;
+  }
+
+  p:hover {
+    color: var(--primary300);
+  }
+
+  li:not(:nth-last-child(1)) {
+    margin-right: 4rem;
+  }
 `;
 
 export default function Nav() {
+  // TODO: create conditional for showing logo and other nav items depending on if index page or privacy/terms pages
   return (
     <NavStyles>
       <ScrollLink
@@ -31,7 +69,7 @@ export default function Nav() {
             to="features"
             spy={true}
             smooth={true}
-            offset={-10}
+            offset={-70}
             duration={500}>
             <p className="body--regular">Features</p>
           </ScrollLink>
@@ -42,7 +80,7 @@ export default function Nav() {
             to="partners"
             spy={true}
             smooth={true}
-            offset={-10}
+            offset={-70}
             duration={500}>
             <p className="body--regular">Partners</p>
           </ScrollLink>
@@ -53,7 +91,7 @@ export default function Nav() {
             to="apply"
             spy={true}
             smooth={true}
-            offset={-10}
+            offset={-70}
             duration={500}>
             <p className="body--regular">Apply</p>
           </ScrollLink>
@@ -64,7 +102,7 @@ export default function Nav() {
             to="contact"
             spy={true}
             smooth={true}
-            offset={-10}
+            offset={-70}
             duration={500}>
             <p className="body--regular">Contact</p>
           </ScrollLink>
