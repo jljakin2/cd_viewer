@@ -1,6 +1,8 @@
 import Head from "next/head";
-import FeatureCard from "../components/FeatureCard";
+import Link from "next/link";
 
+import ContactForm from "../components/ContactForm";
+import FeatureCard from "../components/FeatureCard";
 import HeroProductPreview from "../components/HeroProductPreview";
 import FullLogo from "../components/Icons/FullLogo";
 
@@ -28,20 +30,26 @@ export default function Home() {
       <main>
         <section>
           <HeroProductPreview />
+
           <h1 className="display">
             Welcome to the <span className="highlight-text">3D Revolution</span>
           </h1>
           <h2 className="display">
             Cutting-edge 3D analysis at your fingertips
           </h2>
+          <p className="body--regular">Launching Spring 2022</p>
+          <form>
+            <input type="email" />
+            <button>Sign up</button>
+          </form>
         </section>
 
-        <section>
+        <section id="features">
           <h1 className="heading">Features</h1>
           {renderedFeatures}
         </section>
 
-        <section>
+        <section id="partners">
           <h1 className="heading">Partners</h1>
           <p className="body--regular">
             AFWERX · Harvard · MIT · US Navy · US Air Force · Google for
@@ -50,7 +58,7 @@ export default function Home() {
           </p>
         </section>
 
-        <section>
+        <section id="apply">
           <h1 className="heading">Join Our Team</h1>
           <p className="body--regular">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero,
@@ -65,13 +73,14 @@ export default function Home() {
           </a>
         </section>
 
-        <section>
+        <section id="contact">
           <h1 className="heading">Contact Us</h1>
           <p className="body--regular">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
             sunt quis, ipsum debitis pariatur cum nobis reiciendis? Nesciunt,
             voluptas aperiam.
           </p>
+          <ContactForm />
         </section>
       </main>
 
@@ -80,13 +89,20 @@ export default function Home() {
 
         <div className="footer-section">
           <p className="body--large">Social</p>
-          <p className="body--regular">LinkedIn</p>
+          <a href="https://www.linkedin.com/company/candelytics/">
+            <p className="body--regular">LinkedIn</p>
+          </a>
         </div>
 
         <div className="footer-section">
           <p className="body--large">Resources</p>
-          <p className="body--regular">Privacy Policy</p>
-          <p className="body--regular">Terms of Use</p>
+
+          <Link href="/privacy">
+            <p className="body--regular">Privacy Policy</p>
+          </Link>
+          <Link href="/terms">
+            <p className="body--regular">Terms of Use</p>
+          </Link>
         </div>
       </footer>
     </>

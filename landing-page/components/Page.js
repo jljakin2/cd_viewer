@@ -21,7 +21,7 @@ export default function Page({ children }) {
   return (
     <>
       <GlobalStyles />
-      <header>
+      <header id="home">
         <Nav />
       </header>
       <MainStyles>
