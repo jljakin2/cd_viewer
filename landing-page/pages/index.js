@@ -1,15 +1,20 @@
 import Head from "next/head";
 import Link from "next/link";
 import styled from "styled-components";
+import { useMediaQuery } from "react-responsive";
 
 import ContactForm from "../components/ContactForm";
 import FeatureCard from "../components/FeatureCard";
 import FullLogo from "../components/Icons/FullLogo";
+import background from "../public/hero/mobile/hero-bg.png";
 
 import { features } from "../lib/config";
+import media from "../lib/mediaQueries";
 
 const MainStyles = styled.main`
-  padding: 0 1.5rem 4rem 1.5rem;
+  section {
+    padding: 0 1.5rem 4rem 1.5rem;
+  }
 
   & section:not(:last-child, :first-child) {
     margin-bottom: 10rem;
@@ -38,24 +43,31 @@ const MainStyles = styled.main`
 `;
 
 const HeroStyles = styled.section`
+  background-image: url(${background.src});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom center;
   text-align: center;
 
+  position: relative;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
+  align-items: center;
   justify-content: center;
 
   width: 100%;
   height: 100vh;
+  margin-bottom: 8rem;
 
   h1 {
-    margin-bottom: 1rem;
+    margin: 4rem 0 1.5rem 0;
   }
 
   h2 {
     color: var(--grey200);
 
-    margin-bottom: 7rem;
+    width: 85%;
+    margin-bottom: 8rem;
   }
 
   p {
@@ -64,6 +76,8 @@ const HeroStyles = styled.section`
 
   form {
     position: relative;
+
+    width: 100%;
   }
 
   input {
@@ -128,6 +142,8 @@ const ApplyStyles = styled.section`
 `;
 
 const ContactStyles = styled.section`
+  margin-bottom: 6rem;
+
   .body--regular {
     text-align: center;
   }
@@ -199,6 +215,10 @@ const FooterStyles = styled.footer`
 `;
 
 export default function Home() {
+  const isMobile = useMediaQuery({
+    query: `(max-width: ${media.sizes.tablet})`,
+  });
+
   const renderedFeatures = features.map(feature => {
     return (
       <FeatureCard

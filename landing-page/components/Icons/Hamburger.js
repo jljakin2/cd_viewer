@@ -1,25 +1,16 @@
-import styled from "styled-components";
+import { useMobileMenu } from "../../lib/context/mobileMenuState";
 
-const StyledSvg = styled.svg`
-  display: none;
+const Hamburger = () => {
+  const { toggleMobileMenu } = useMobileMenu();
 
-  /* margin-left: auto; */
-
-  // 850px
-  @media only screen and (max-width: 53.125em) {
-    display: block;
-  }
-`;
-
-const Hamburger = ({ showMobileMenu }) => {
   return (
-    <StyledSvg
+    <svg
       width="28px"
       height="22px"
       viewBox="0 0 28 22"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
-      onClick={showMobileMenu}>
+      onClick={toggleMobileMenu}>
       <g id="Main" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
         <g
           id="Tablet"
@@ -50,7 +41,7 @@ const Hamburger = ({ showMobileMenu }) => {
           </g>
         </g>
       </g>
-    </StyledSvg>
+    </svg>
   );
 };
 

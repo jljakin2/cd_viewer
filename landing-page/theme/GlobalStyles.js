@@ -42,6 +42,10 @@ const GlobalStyles = createGlobalStyle`
       background: var(--grey900);
       color: var(--white);
       font-family: "Roboto", --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      overflow-x: hidden;
+      overflow-y: ${({ menuIsOpen }) => (menuIsOpen ? "hidden" : "visible")};
+
+      position: relative;
     }
 
     input, textarea, button {
@@ -241,6 +245,14 @@ const GlobalStyles = createGlobalStyle`
 /* ===== HELPERS ===== */
     .highlight-text {
       color: var(--primary);
+    }
+
+    .blackout {
+      background: black;
+      opacity: 0.5;
+
+      width: 100vw;
+      height: 100vh;
     }
 /* =========== ========== */
 `;

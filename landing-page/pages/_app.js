@@ -1,10 +1,13 @@
 import Page from "../components/Page";
+import { MobileMenuStateProvider } from "../lib/context/mobileMenuState";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Page>
-      <Component {...pageProps} />
-    </Page>
+    <MobileMenuStateProvider>
+      <Page>
+        <Component {...pageProps} />
+      </Page>
+    </MobileMenuStateProvider>
   );
 }
 

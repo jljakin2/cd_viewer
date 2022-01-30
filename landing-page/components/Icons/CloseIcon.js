@@ -1,29 +1,21 @@
-import React from "react";
-import styled from "styled-components";
+import { useMobileMenu } from "../../lib/context/mobileMenuState";
 
-const StyledSvg = styled.svg`
-  margin-left: auto;
-`;
+const CloseIcon = () => {
+  const { toggleMobileMenu } = useMobileMenu();
 
-const CloseIcon = ({ closeMobileMenu }) => {
   return (
-    <StyledSvg
+    <svg
       width="22px"
       height="22px"
       viewBox="0 0 22 22"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
-      onClick={closeMobileMenu}>
-      <g
-        id="Main"
-        stroke="none"
-        stroke-width="1"
-        fill="none"
-        fillRule="evenodd">
+      onClick={toggleMobileMenu}>
+      <g id="Main" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
         <g
           id="Tablet"
           transform="translate(-731.000000, -168.000000)"
-          fill="#1B2E40">
+          fill="#fff">
           <g id="Group-6" transform="translate(731.393398, 168.393398)">
             <rect
               id="Rectangle-Copy-21"
@@ -44,7 +36,7 @@ const CloseIcon = ({ closeMobileMenu }) => {
           </g>
         </g>
       </g>
-    </StyledSvg>
+    </svg>
   );
 };
 
