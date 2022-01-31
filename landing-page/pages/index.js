@@ -60,11 +60,14 @@ const HeroStyles = styled.section`
   margin-bottom: 8rem;
 
   h1 {
+    font-size: 3em;
+
     margin: 10vw 0 1.5rem 0;
   }
 
   h2 {
     color: var(--grey200);
+    font-size: 2em;
 
     width: 85%;
     margin-bottom: 8rem;
