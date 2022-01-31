@@ -60,7 +60,7 @@ const HeroStyles = styled.section`
   margin-bottom: 8rem;
 
   h1 {
-    margin: 4rem 0 1.5rem 0;
+    margin: 10vw 0 1.5rem 0;
   }
 
   h2 {
