@@ -6,7 +6,7 @@ import { useMediaQuery } from "react-responsive";
 import ContactForm from "../components/ContactForm";
 import FeatureCard from "../components/FeatureCard";
 import FullLogo from "../components/Icons/FullLogo";
-import background from "../public/hero/mobile/hero--bg.svg";
+import background from "../public/hero/mobile/hero-bg.svg";
 
 import { features } from "../lib/config";
 import media from "../lib/mediaQueries";
@@ -45,7 +45,7 @@ const MainStyles = styled.main`
 const HeroStyles = styled.section`
   background-image: url(${background.src});
   background-repeat: no-repeat;
-  background-size: 300%;
+  background-size: 100%;
   background-position: bottom center;
   text-align: center;
 
