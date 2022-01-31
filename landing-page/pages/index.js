@@ -6,16 +6,14 @@ import { useMediaQuery } from "react-responsive";
 import ContactForm from "../components/ContactForm";
 import FeatureCard from "../components/FeatureCard";
 import FullLogo from "../components/Icons/FullLogo";
-import background from "../public/hero/mobile/hero-bg.svg";
+import backgroundMobile from "../public/hero/mobile/hero-bg.svg";
+import backgroundTablet from "../public/hero/tablet/hero-bg.svg";
+import backgroundDesktop from "../public/hero/desktop/hero-bg.svg";
 
 import { features } from "../lib/config";
 import media from "../lib/mediaQueries";
 
 const MainStyles = styled.main`
-  section {
-    padding: 0 1.5rem 4rem 1.5rem;
-  }
-
   & section:not(:last-child, :first-child) {
     margin-bottom: 10rem;
   }
@@ -40,10 +38,32 @@ const MainStyles = styled.main`
     width: 4rem;
     height: 0.25rem;
   }
+
+  .partner-apply-container {
+    margin-bottom: 10rem;
+    padding: 0 1.5rem 4rem 1.5rem;
+
+    ${media.tablet} {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+
+      padding: 0 4rem 4rem 4rem;
+      /* width: 80%; */
+
+      & > section {
+        flex-basis: 50%;
+      }
+    }
+
+    ${media.laptop} {
+      padding: 0 10rem;
+    }
+  }
 `;
 
 const HeroStyles = styled.section`
-  background-image: url(${background.src});
+  background-image: url(${backgroundMobile.src});
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: bottom center;
@@ -58,6 +78,19 @@ const HeroStyles = styled.section`
   width: 100%;
   height: 100vh;
   margin-bottom: 8rem;
+  padding: 0 1.5rem 4rem 1.5rem;
+
+  ${media.tablet} {
+    background-image: url(${backgroundTablet.src});
+
+    padding: 0 4rem 4rem 4rem;
+  }
+
+  ${media.laptop} {
+    background-image: url(${backgroundDesktop.src});
+
+    padding: 0 10rem 4rem 10rem;
+  }
 
   h1 {
     margin: 10vw 0 1.5rem 0;
@@ -78,6 +111,10 @@ const HeroStyles = styled.section`
     position: relative;
 
     width: 100%;
+
+    ${media.tablet} {
+      width: 70%;
+    }
   }
 
   input {
@@ -102,23 +139,75 @@ const HeroStyles = styled.section`
 `;
 
 const FeaturesStyles = styled.section`
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
   width: 100%;
 
+  padding: 0 1.5rem 4rem 1.5rem;
+
+  ${media.tablet} {
+    padding: 0 4rem 4rem 4rem;
+  }
+
+  ${media.laptop} {
+    padding: 0 10rem 4rem 10rem;
+  }
+
   & div:not(:last-child) {
     margin-bottom: 4rem;
+
+    ${media.tablet} {
+      margin-bottom: 0;
+    }
   }
 
   .card-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    ${media.tablet} {
+      flex-direction: row;
+      justify-content: space-between;
+      column-gap: 5rem;
+
+      width: 100%;
+    }
+
+    ${media.laptop} {
+      width: 70%;
+    }
   }
 `;
 
 const PartnerStyles = styled.section`
   text-align: center;
+  position: relative;
+
+  margin-bottom: 4rem;
+
+  ${media.laptop} {
+    margin-bottom: 0;
+    padding-right: 3rem;
+
+    /* &::after {
+      content: "";
+      color: red;
+
+      position: absolute;
+      top: 50%;
+      right: 0;
+
+      transform: translateY(-50%);
+      width: 1rem;
+      height: 20rem;
+
+      z-index: 1000000;
+    } */
+  }
 
   p {
     color: var(--grey300);
@@ -139,13 +228,33 @@ const ApplyStyles = styled.section`
   button {
     width: 50%;
   }
+
+  ${media.laptop} {
+    padding-left: 3rem;
+  }
 `;
 
 const ContactStyles = styled.section`
   margin-bottom: 6rem;
+  padding: 0 1.5rem 4rem 1.5rem;
+
+  ${media.tablet} {
+    padding: 0 4rem 4rem 4rem;
+  }
+
+  ${media.laptop} {
+    display: flex;
+    justify-content: center;
+
+    padding: 0 10rem 4rem 10rem;
+  }
 
   .body--regular {
     text-align: center;
+
+    ${media.laptop} {
+      text-align: left;
+    }
   }
 
   button {
@@ -169,8 +278,24 @@ const FooterStyles = styled.footer`
 
   padding: 2rem 1.5rem 4rem 1.5rem;
 
+  ${media.laptop} {
+    flex-direction: row;
+    align-items: flex-start;
+
+    padding: 2rem 4rem 4rem 4rem;
+
+    .footer-section--logo {
+      margin-right: 4rem;
+    }
+  }
+
   .footer-section:not(:last-child) {
     margin-bottom: 2rem;
+
+    ${media.laptop} {
+      margin-bottom: 0;
+      margin-right: 4rem;
+    }
   }
 
   svg {
@@ -190,27 +315,9 @@ const FooterStyles = styled.footer`
 
     transition: all 0.2s ease-out;
 
-    /* &::after {
-      content: "";
-      background: var(--white);
-
-      position: absolute;
-      bottom: -0.25rem;
-      left: 50%;
-      transform: translateX(-50%);
-      transition: all 0.2s ease-out;
-
-      width: 0%;
-      height: 1px;
-    } */
-
     &:hover {
       color: var(--white);
     }
-
-    /* &:hover &::after {
-      width: 100%;
-    } */
   }
 `;
 
@@ -262,7 +369,7 @@ export default function Home() {
           <p className="body--regular">Launching Spring 2022</p>
           <form onSubmit={handleEmailSubscription}>
             <input type="email" placeholder="Be the first to know..." />
-            <small className="body--small error">Error</small>
+            {/* <small className="body--small error">Error</small> */}
             <button id="signup-btn" type="submit">
               Sign up
             </button>
@@ -273,45 +380,50 @@ export default function Home() {
           <h1 className="heading section-title">Features</h1>
           <div className="card-container">{renderedFeatures}</div>
         </FeaturesStyles>
+        <div className="partner-apply-container">
+          <PartnerStyles id="partners">
+            <h1 className="heading section-title">Partners</h1>
+            <p className="body--regular">
+              AFWERX · Harvard · MIT · US Navy · US Air Force · Google for
+              Startups · Penfed Foundation · Mass Challenge · Leica · National
+              Security Innovation Network
+            </p>
+          </PartnerStyles>
 
-        <PartnerStyles id="partners">
-          <h1 className="heading section-title">Partners</h1>
-          <p className="body--regular">
-            AFWERX · Harvard · MIT · US Navy · US Air Force · Google for
-            Startups · Penfed Foundation · Mass Challenge · Leica · National
-            Security Innovation Network
-          </p>
-        </PartnerStyles>
-
-        <ApplyStyles id="apply">
-          <h1 className="heading section-title">Join Our Team</h1>
-          <p className="body--regular">
-            We are a venture-backed and student-founded team of engineers,
-            veterans, and entrepreneurs.
-          </p>
-          <p className="body--regular">
-            Come help us build the future of 3D visualization and analytics as
-            we deliver cutting edge solutions to national security and
-            commercial customers! If you don’t see the role you’re looking for,
-            us the contact form below and tell us more about yourself.
-          </p>
-          <a href="https://angel.co/company/candelytics/jobs">
-            <button>See open roles</button>
-          </a>
-        </ApplyStyles>
+          <ApplyStyles id="apply">
+            <h1 className="heading section-title">Join Our Team</h1>
+            <p className="body--regular">
+              We are a venture-backed and student-founded team of engineers,
+              veterans, and entrepreneurs.
+            </p>
+            <p className="body--regular">
+              Come help us build the future of 3D visualization and analytics as
+              we deliver cutting edge solutions to national security and
+              commercial customers! If you don’t see the role you’re looking
+              for, us the contact form below and tell us more about yourself.
+            </p>
+            <a href="https://angel.co/company/candelytics/jobs">
+              <button>See open roles</button>
+            </a>
+          </ApplyStyles>
+        </div>
 
         <ContactStyles id="contact">
-          <h1 className="heading section-title">Contact Us</h1>
-          <p className="body--regular">
-            We would love to hear from you! Reach out and be the first to know
-            about exciting new developments.
-          </p>
+          <div>
+            <h1 className="heading section-title">Contact Us</h1>
+            <p className="body--regular">
+              We would love to hear from you! Reach out and be the first to know
+              about exciting new developments.
+            </p>
+          </div>
           <ContactForm />
         </ContactStyles>
       </MainStyles>
 
       <FooterStyles>
-        <FullLogo />
+        <div className="footer-section--logo">
+          <FullLogo />
+        </div>
 
         <div className="footer-section">
           <p className="body--large">Social</p>

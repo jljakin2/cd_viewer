@@ -63,8 +63,10 @@ const GlobalStyles = createGlobalStyle`
       line-height: 3rem;
 
       ${media.tablet} {
-        font-size: 3.25rem;
+        font-size: 4rem;
         line-height: 3.5rem;
+
+        margin-bottom: 2rem;
       }
     }
 
@@ -90,7 +92,7 @@ const GlobalStyles = createGlobalStyle`
       font-weight: normal;
 
       ${media.tablet} {
-        font-size: 2.375rem;
+        font-size: 3rem;
         line-height: 3rem;
       }
     }

@@ -1,10 +1,19 @@
 import styled from "styled-components";
 
+import media from "../lib/mediaQueries";
+
 const FormStyles = styled.form`
   background: var(--grey700);
   border-radius: 0.375rem;
 
   padding: 2rem 1.5rem;
+
+  ${media.laptop} {
+    flex-basis: 60%;
+
+    margin-left: 4rem;
+    padding: 3rem 2.5rem;
+  }
 
   & .form-control:not(:last-child) {
     margin-bottom: 2rem;
