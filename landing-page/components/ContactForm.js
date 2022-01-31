@@ -26,8 +26,19 @@ const FormStyles = styled.form`
 `;
 
 export default function ContactForm() {
+  function handleContactSubmission(e) {
+    e.preventDefault();
+
+    /**
+     * TODO:
+     *  1. call custom function that handles submission to emailjs
+     */
+
+    console.log("contact sent!");
+  }
+
   return (
-    <FormStyles>
+    <FormStyles onSubmit={handleContactSubmission}>
       <fieldset>
         <div className="form-control">
           <input
@@ -38,7 +49,7 @@ export default function ContactForm() {
             //   onChange={handleChange}
           />
           {/* {errors.name && <Error>{errors.name}</Error>} */}
-          <small className="body--small error">error</small>
+          {/* <small className="body--small error">error</small> */}
         </div>
         <div className="form-control">
           <input

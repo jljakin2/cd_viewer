@@ -6,7 +6,7 @@ import { useMediaQuery } from "react-responsive";
 import ContactForm from "../components/ContactForm";
 import FeatureCard from "../components/FeatureCard";
 import FullLogo from "../components/Icons/FullLogo";
-import background from "../public/hero/mobile/hero-bg.png";
+import background from "../public/hero/mobile/hero--bg.svg";
 
 import { features } from "../lib/config";
 import media from "../lib/mediaQueries";
@@ -45,7 +45,7 @@ const MainStyles = styled.main`
 const HeroStyles = styled.section`
   background-image: url(${background.src});
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 300%;
   background-position: bottom center;
   text-align: center;
 
@@ -167,7 +167,7 @@ const FooterStyles = styled.footer`
   flex-direction: column;
   align-items: center;
 
-  padding: 2rem 1.5rem;
+  padding: 2rem 1.5rem 4rem 1.5rem;
 
   .footer-section:not(:last-child) {
     margin-bottom: 2rem;
@@ -219,6 +219,20 @@ export default function Home() {
     query: `(max-width: ${media.sizes.tablet})`,
   });
 
+  function handleEmailSubscription(e) {
+    e.preventDefault();
+
+    /**
+     * TODO:
+     *  1. prevent html error checking
+     *  2. check for errors
+     *  3. call mailchimp api
+     *  4. clear form contents
+     */
+
+    console.log("you are subscribed!");
+  }
+
   const renderedFeatures = features.map(feature => {
     return (
       <FeatureCard
@@ -246,10 +260,12 @@ export default function Home() {
             Cutting-edge 3D analysis at your fingertips
           </h2>
           <p className="body--regular">Launching Spring 2022</p>
-          <form>
+          <form onSubmit={handleEmailSubscription}>
             <input type="email" placeholder="Be the first to know..." />
-            <button id="signup-btn">Sign up</button>
             <small className="body--small error">Error</small>
+            <button id="signup-btn" type="submit">
+              Sign up
+            </button>
           </form>
         </HeroStyles>
 
@@ -270,14 +286,16 @@ export default function Home() {
         <ApplyStyles id="apply">
           <h1 className="heading section-title">Join Our Team</h1>
           <p className="body--regular">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero,
-            quidem!
+            We are a venture-backed and student-founded team of engineers,
+            veterans, and entrepreneurs.
           </p>
           <p className="body--regular">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero,
-            quidem!
+            Come help us build the future of 3D visualization and analytics as
+            we deliver cutting edge solutions to national security and
+            commercial customers! If you don’t see the role you’re looking for,
+            us the contact form below and tell us more about yourself.
           </p>
-          <a href="#">
+          <a href="https://angel.co/company/candelytics/jobs">
             <button>See open roles</button>
           </a>
         </ApplyStyles>
@@ -285,9 +303,8 @@ export default function Home() {
         <ContactStyles id="contact">
           <h1 className="heading section-title">Contact Us</h1>
           <p className="body--regular">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
-            sunt quis, ipsum debitis pariatur cum nobis reiciendis? Nesciunt,
-            voluptas aperiam.
+            We would love to hear from you! Reach out and be the first to know
+            about exciting new developments.
           </p>
           <ContactForm />
         </ContactStyles>

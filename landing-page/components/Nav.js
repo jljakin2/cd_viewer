@@ -61,7 +61,7 @@ const MobileMenuStyles = styled.div`
 
   .blackout {
     background: black;
-    opacity: 0.5;
+    opacity: 0.75;
 
     position: absolute;
 
@@ -138,7 +138,7 @@ export default function Nav() {
                   to="features"
                   spy={true}
                   smooth={true}
-                  offset={-70}
+                  offset={-100}
                   duration={500}>
                   <p className="body--regular" onClick={closeMobileMenu}>
                     Features
@@ -151,7 +151,7 @@ export default function Nav() {
                   to="partners"
                   spy={true}
                   smooth={true}
-                  offset={-70}
+                  offset={-100}
                   duration={500}>
                   <p className="body--regular" onClick={closeMobileMenu}>
                     Partners
@@ -164,7 +164,7 @@ export default function Nav() {
                   to="apply"
                   spy={true}
                   smooth={true}
-                  offset={-70}
+                  offset={-100}
                   duration={500}>
                   <p className="body--regular" onClick={closeMobileMenu}>
                     Apply
@@ -177,7 +177,7 @@ export default function Nav() {
                   to="contact"
                   spy={true}
                   smooth={true}
-                  offset={-70}
+                  offset={-100}
                   duration={500}>
                   <p className="body--regular" onClick={closeMobileMenu}>
                     Contact
