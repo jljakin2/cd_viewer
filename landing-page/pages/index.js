@@ -333,35 +333,6 @@ export default function Home() {
   function handleEmailSubscription(e) {
     e.preventDefault();
 
-    // const data = JSON.stringify({
-    //   members: [
-    //     {
-    //       email_address: email,
-    //       status: "subscribed",
-    //     },
-    //   ],
-    // });
-
-    // const config = {
-    //   method: "post",
-    //   url:,
-    //   headers: {
-    //     Authorization:
-
-    //     "Content-Type": "application/json",
-    //     "Access-Control-Allow-Origin": "*",
-    //   },
-    //   data: data,
-    // };
-
-    // axios(config)
-    //   .then(function (response) {
-    //     console.log(JSON.stringify(response.data));
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //   });
-
     /**
      * TODO:
      *  1. prevent html error checking
