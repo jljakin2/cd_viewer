@@ -1,7 +1,9 @@
+import { useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import styled from "styled-components";
 import { useMediaQuery } from "react-responsive";
+import axios from "axios";
 
 import ContactForm from "../components/ContactForm";
 import FeatureCard from "../components/FeatureCard";
@@ -326,8 +328,39 @@ export default function Home() {
     query: `(max-width: ${media.sizes.tablet})`,
   });
 
+  const [email, setEmail] = useState("");
+
   function handleEmailSubscription(e) {
     e.preventDefault();
+
+    // const data = JSON.stringify({
+    //   members: [
+    //     {
+    //       email_address: email,
+    //       status: "subscribed",
+    //     },
+    //   ],
+    // });
+
+    // const config = {
+    //   method: "post",
+    //   url:,
+    //   headers: {
+    //     Authorization:
+
+    //     "Content-Type": "application/json",
+    //     "Access-Control-Allow-Origin": "*",
+    //   },
+    //   data: data,
+    // };
+
+    // axios(config)
+    //   .then(function (response) {
+    //     console.log(JSON.stringify(response.data));
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //   });
 
     /**
      * TODO:
@@ -338,6 +371,7 @@ export default function Home() {
      */
 
     console.log("you are subscribed!");
+    console.log(email);
   }
 
   const renderedFeatures = features.map(feature => {
@@ -368,7 +402,12 @@ export default function Home() {
           </h2>
           <p className="body--regular">Launching Spring 2022</p>
           <form onSubmit={handleEmailSubscription}>
-            <input type="email" placeholder="Be the first to know..." />
+            <input
+              type="email"
+              placeholder="Be the first to know..."
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+            />
             {/* <small className="body--small error">Error</small> */}
             <button id="signup-btn" type="submit">
               Sign up

@@ -16,19 +16,6 @@ export default function useForm(initial = {}) {
     });
   }
 
-  function handleDropdownChange(e) {
-    let value = e.target.getAttribute("data-value"); // get the value of the clicked on dropdown item
-    let name = e.target.getAttribute("data-name"); // get the name of the clicked on dropdown item
-
-    setInputs({
-      // copy existing state
-      ...inputs,
-      // this syntax allows us to dynamically update the input that is changing based on the
-      // e.target.name of the input that changes. then we just update its state to the current e.target.value
-      [name]: value,
-    });
-  }
-
   // reset the form. we will use this after the form is submitted
   function resetForm() {
     setInputs(initial);
@@ -38,7 +25,6 @@ export default function useForm(initial = {}) {
   return {
     inputs,
     handleChange,
-    handleDropdownChange,
     resetForm,
     setInputs,
   };
