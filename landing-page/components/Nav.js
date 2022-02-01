@@ -22,6 +22,10 @@ const NavStyles = styled.nav`
 
   z-index: 1000;
 
+  ${media.laptop} {
+    padding: 1rem 4rem;
+  }
+
   svg {
     cursor: pointer;
   }

@@ -3,14 +3,13 @@ import Head from "next/head";
 import Link from "next/link";
 import styled from "styled-components";
 import { useMediaQuery } from "react-responsive";
-import axios from "axios";
 
 import ContactForm from "../components/ContactForm";
 import FeatureCard from "../components/FeatureCard";
 import FullLogo from "../components/Icons/FullLogo";
-import backgroundMobile from "../public/hero/mobile/hero-bg.svg";
-import backgroundTablet from "../public/hero/tablet/hero-bg.svg";
-import backgroundDesktop from "../public/hero/desktop/hero-bg.svg";
+import backgroundMobile from "../public/hero/mobile/hero-bg.png";
+import backgroundTablet from "../public/hero/tablet/hero-bg.png";
+import backgroundDesktop from "../public/hero/desktop/hero-bg.png";
 
 import { features } from "../lib/config";
 import media from "../lib/mediaQueries";
@@ -18,6 +17,10 @@ import media from "../lib/mediaQueries";
 const MainStyles = styled.main`
   & section:not(:last-child, :first-child) {
     margin-bottom: 10rem;
+
+    ${media.laptop} {
+      margin-bottom: 15rem;
+    }
   }
 
   .section-title {
@@ -45,12 +48,13 @@ const MainStyles = styled.main`
     margin-bottom: 10rem;
     padding: 0 1.5rem 4rem 1.5rem;
 
-    ${media.tablet} {
+    ${media.laptop} {
       display: flex;
       align-items: flex-start;
       justify-content: center;
 
       padding: 0 4rem 4rem 4rem;
+      margin-bottom: 15rem;
       /* width: 80%; */
 
       & > section {
@@ -161,7 +165,7 @@ const FeaturesStyles = styled.section`
   & div:not(:last-child) {
     margin-bottom: 4rem;
 
-    ${media.tablet} {
+    ${media.laptop} {
       margin-bottom: 0;
     }
   }
@@ -171,16 +175,12 @@ const FeaturesStyles = styled.section`
     flex-direction: column;
     align-items: center;
 
-    ${media.tablet} {
+    ${media.laptop} {
       flex-direction: row;
       justify-content: space-between;
-      column-gap: 5rem;
+      column-gap: 8rem;
 
       width: 100%;
-    }
-
-    ${media.laptop} {
-      width: 70%;
     }
   }
 `;
@@ -189,26 +189,11 @@ const PartnerStyles = styled.section`
   text-align: center;
   position: relative;
 
-  margin-bottom: 4rem;
+  margin-bottom: 10rem;
 
   ${media.laptop} {
     margin-bottom: 0;
     padding-right: 3rem;
-
-    /* &::after {
-      content: "";
-      color: red;
-
-      position: absolute;
-      top: 50%;
-      right: 0;
-
-      transform: translateY(-50%);
-      width: 1rem;
-      height: 20rem;
-
-      z-index: 1000000;
-    } */
   }
 
   p {
@@ -302,6 +287,10 @@ const FooterStyles = styled.footer`
 
   svg {
     margin-bottom: 1.5rem;
+
+    ${media.laptop} {
+      margin-right: 5rem;
+    }
   }
 
   .body--large {
@@ -330,21 +319,6 @@ export default function Home() {
 
   const [email, setEmail] = useState("");
 
-  function handleEmailSubscription(e) {
-    e.preventDefault();
-
-    /**
-     * TODO:
-     *  1. prevent html error checking
-     *  2. check for errors
-     *  3. call mailchimp api
-     *  4. clear form contents
-     */
-
-    console.log("you are subscribed!");
-    console.log(email);
-  }
-
   const renderedFeatures = features.map(feature => {
     return (
       <FeatureCard
@@ -372,18 +346,18 @@ export default function Home() {
             Cutting-edge 3D analysis at your fingertips
           </h2>
           <p className="body--regular">Launching Spring 2022</p>
-          <form onSubmit={handleEmailSubscription}>
+          {/* <form onSubmit={handleEmailSubscription}>
             <input
               type="email"
               placeholder="Be the first to know..."
               value={email}
               onChange={e => setEmail(e.target.value)}
             />
-            {/* <small className="body--small error">Error</small> */}
+            <small className="body--small error">Error</small>
             <button id="signup-btn" type="submit">
               Sign up
             </button>
-          </form>
+          </form> */}
         </HeroStyles>
 
         <FeaturesStyles id="features">
@@ -410,7 +384,7 @@ export default function Home() {
               Come help us build the future of 3D visualization and analytics as
               we deliver cutting edge solutions to national security and
               commercial customers! If you don’t see the role you’re looking
-              for, us the contact form below and tell us more about yourself.
+              for, use the contact form below and tell us more about yourself.
             </p>
             <a href="https://angel.co/company/candelytics/jobs">
               <button>See open roles</button>
@@ -422,8 +396,11 @@ export default function Home() {
           <div>
             <h1 className="heading section-title">Contact Us</h1>
             <p className="body--regular">
-              We would love to hear from you! Reach out and be the first to know
-              about exciting new developments.
+              We would love to hear from you! Reach out to learn more or apply
+              to join our team.
+            </p>
+            <p className="body--regular">
+              Stay tuned for exciting new developments!
             </p>
           </div>
           <ContactForm />

@@ -11,7 +11,7 @@ const CardStyles = styled.div`
 
   width: 70%;
 
-  ${media.tablet} {
+  ${media.laptop} {
     flex: 1;
 
     width: 100%;

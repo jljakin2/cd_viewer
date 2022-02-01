@@ -9,7 +9,7 @@ export const features = [
     id: 2,
     title: "Custom Visualizations",
     description:
-      "Custom visualizer to view and edit your point clouds, and share them with anyone",
+      "Custom visualizer allows you to view, edit, and share your point clouds with anyone",
   },
   {
     id: 3,
