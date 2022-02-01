@@ -256,6 +256,10 @@ const GlobalStyles = createGlobalStyle`
       width: 100vw;
       height: 100vh;
     }
+
+    .error-border {
+      border: 2px solid var(--error);
+    }
 /* =========== ========== */
 `;
 

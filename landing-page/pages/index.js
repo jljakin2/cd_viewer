@@ -1,7 +1,9 @@
+import { useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import styled from "styled-components";
 import { useMediaQuery } from "react-responsive";
+import axios from "axios";
 
 import ContactForm from "../components/ContactForm";
 import FeatureCard from "../components/FeatureCard";
@@ -326,8 +328,40 @@ export default function Home() {
     query: `(max-width: ${media.sizes.tablet})`,
   });
 
+  const [email, setEmail] = useState("");
+
   function handleEmailSubscription(e) {
     e.preventDefault();
+
+    const data = JSON.stringify({
+      members: [
+        {
+          email_address: email,
+          status: "subscribed",
+        },
+      ],
+    });
+
+    const config = {
+      method: "post",
+      url: "https://us14.api.mailchimp.com/3.0/lists/75644da684",
+      headers: {
+        Authorization:
+          "Basic Y2FuZGVseXRpY3M6MzJiZDc4MmQ3ZDRlZDgxNmM3MmY0ZmZjNzY4OWFlYTQtdXMxNA==",
+        "Content-Type": "application/json",
+        Cookie:
+          "ak_bmsc=8048E24B5BCA4BABBC6FF50390E52228~000000000000000000000000000000~YAAQ1ag4F3userN+AQAAgdUVtg5vbLzqaz7eUFipw5bXT/B1BNeHIai450nsmNzS5dGHLBXqOxpN1bfRu3us0RsxZ/+T5UuHrdKfp9PHxXQAVUZ6eK5Z1WGHbpD+96zMiuJNsHs8U+DeBsqDIrpgG3SEKdxZVbnQ/Q6iT47qjGoNqvh2qZGTGdCHSMaL39CzzTMlskzr3+MucJk4GbCA+5OsySRvFwRDKGAx5P2VFn7/pvUTmEXUEUosu1BCaDUyAM5SPJ5bic2LVPTw+4omp5McOzpGrQBZy8ff0hpDkmZNA9KvtT5ofpe6+2JsKrhEmGquTQzSMX+DVw18JHVIL0DBZjAbBBbtt+AoWcqMzr5i8u9bWwECLKbJngXkgxwROzw=; bm_sv=BAC24C3ADDBD65D6834C6D8C61BA7CAB~hIx55GgfCCwtPXq0q49niNg8r49eyVo2yhRAV09zkutBWIQqlbqCZ8MYRlo31FUkfHdwEwf7ckU5Kn3eDQyq+F+oAtEg8B+l05cHkcpJ13iI9oQqC0M9kXgK2vaSOLcM3LG6xWjRo5qlhC7VJDQAQksPwtheuwMhH57iFKHIZBo=",
+      },
+      data: data,
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
 
     /**
      * TODO:
@@ -338,6 +372,7 @@ export default function Home() {
      */
 
     console.log("you are subscribed!");
+    console.log(email);
   }
 
   const renderedFeatures = features.map(feature => {
@@ -368,7 +403,12 @@ export default function Home() {
           </h2>
           <p className="body--regular">Launching Spring 2022</p>
           <form onSubmit={handleEmailSubscription}>
-            <input type="email" placeholder="Be the first to know..." />
+            <input
+              type="email"
+              placeholder="Be the first to know..."
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+            />
             {/* <small className="body--small error">Error</small> */}
             <button id="signup-btn" type="submit">
               Sign up
