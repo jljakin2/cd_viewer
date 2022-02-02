@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import styled from "styled-components";
 import emailjs from "emailjs-com";
+import { TailSpin } from "react-loader-spinner";
 
 import media from "../lib/mediaQueries";
 import useForm from "../lib/useForm";
@@ -36,6 +37,16 @@ const FormStyles = styled.form`
 
   fieldset {
     margin-bottom: 3rem;
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & *:nth-child(1) {
+      margin-left: 0.5rem;
+    }
   }
 `;
 
@@ -178,6 +189,7 @@ export default function ContactForm() {
           <Loader type="TailSpin" color={theme.white} width={15} height={15} />
         )} */}
         Send message
+        {isLoading && <TailSpin color="#fff" height={16} width={16} />}
       </button>
     </FormStyles>
   );

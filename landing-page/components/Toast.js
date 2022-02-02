@@ -6,6 +6,7 @@ import media from "../lib/mediaQueries";
 const ToastStyles = styled.div`
   background: var(--white);
   box-shadow: var(--bs);
+  color: var(--grey800);
 
   display: flex;
   align-items: center;
@@ -25,6 +26,7 @@ const ToastStyles = styled.div`
     right: 3vw;
 
     min-width: 15rem;
+    padding: 1rem;
   }
 
   .border {
@@ -34,12 +36,6 @@ const ToastStyles = styled.div`
     width: 0.25rem;
     height: 100%;
     margin-right: 0.75rem;
-  }
-
-  .body-2 {
-    opacity: 0.75;
-
-    margin-top: 0.25rem;
   }
 
   .close {
@@ -57,6 +53,17 @@ const ToastStyles = styled.div`
     &:hover {
       opacity: 0.8;
     }
+  }
+
+  p.body--regular {
+    line-height: 1rem;
+  }
+
+  p.body--small {
+    opacity: 0.75;
+    line-height: 1rem;
+
+    margin-top: 0.25rem;
   }
 `;
 
@@ -76,8 +83,8 @@ export default function Toast() {
     <ToastStyles showToast={showToast}>
       <div className="border" />
       <div>
-        <h4>{header[toastContent.type]}</h4>
-        <p className="body-2">{toastContent.message}</p>
+        <p className="body--regular">{header[toastContent.type]}</p>
+        <p className="body--small">{toastContent.message}</p>
       </div>
       <p className="close" onClick={closeToast}>
         &times;

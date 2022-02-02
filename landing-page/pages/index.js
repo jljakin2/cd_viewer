@@ -344,7 +344,7 @@ export default function Home() {
           <h2 className="display">
             Cutting-edge 3D analysis at your fingertips
           </h2>
-          <p className="body--regular">Coming Soon 2022</p>
+          <h6 className="body--regular">Coming Soon 2022</h6>
           {/* <form onSubmit={handleEmailSubscription}>
             <input
               type="email"
