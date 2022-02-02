@@ -5,6 +5,7 @@ import emailjs from "emailjs-com";
 import media from "../lib/mediaQueries";
 import useForm from "../lib/useForm";
 import validateForm from "../lib/validateForm";
+import { useToast } from "../lib/context/showToast";
 
 const FormStyles = styled.form`
   background: var(--grey700);
@@ -52,6 +53,8 @@ export default function ContactForm() {
     message: "",
   });
 
+  const { handleToastContent } = useToast();
+
   const form = useRef();
 
   const sendEmail = e => {
@@ -76,13 +79,18 @@ export default function ContactForm() {
           result => {
             console.log(result.text);
             console.log("success");
+            setIsLoading(false);
+            handleToastContent(
+              // show a successful toast with the following content
+              "success",
+              "Your message was sent successfully."
+            );
             // setToastType({
             //   type: "success",
             //   message: "Thank you for your message!",
             // });
             // handleShowToast();
             resetForm();
-            setIsLoading(false);
           },
           error => {
             console.log(error.text);
@@ -91,8 +99,13 @@ export default function ContactForm() {
             //   message: "Uh oh! Something went wrong.",
             // });
             // handleShowToast();
-            resetForm();
             setIsLoading(false);
+            handleToastContent(
+              // show a successful toast with the following content
+              "error",
+              "Something went wrong. Please try again."
+            );
+            resetForm();
           }
         );
     }

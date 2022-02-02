@@ -95,6 +95,7 @@ const HeroStyles = styled.section`
   ${media.laptop} {
     background-image: url(${backgroundDesktop.src});
 
+    margin-bottom: 15rem;
     padding: 0 10rem 4rem 10rem;
   }
 
@@ -317,8 +318,6 @@ export default function Home() {
     query: `(max-width: ${media.sizes.tablet})`,
   });
 
-  const [email, setEmail] = useState("");
-
   const renderedFeatures = features.map(feature => {
     return (
       <FeatureCard
@@ -345,7 +344,7 @@ export default function Home() {
           <h2 className="display">
             Cutting-edge 3D analysis at your fingertips
           </h2>
-          <p className="body--regular">Launching Spring 2022</p>
+          <p className="body--regular">Coming Soon 2022</p>
           {/* <form onSubmit={handleEmailSubscription}>
             <input
               type="email"

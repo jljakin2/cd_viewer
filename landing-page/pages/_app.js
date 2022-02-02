@@ -1,13 +1,16 @@
 import Page from "../components/Page";
 import { MobileMenuStateProvider } from "../lib/context/mobileMenuState";
+import { ToastStateProvider } from "../lib/context/showToast";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <MobileMenuStateProvider>
-      <Page>
-        <Component {...pageProps} />
-      </Page>
-    </MobileMenuStateProvider>
+    <ToastStateProvider>
+      <MobileMenuStateProvider>
+        <Page>
+          <Component {...pageProps} />
+        </Page>
+      </MobileMenuStateProvider>
+    </ToastStateProvider>
   );
 }
 

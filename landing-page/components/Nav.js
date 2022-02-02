@@ -142,7 +142,7 @@ export default function Nav() {
                   to="features"
                   spy={true}
                   smooth={true}
-                  offset={-100}
+                  offset={-110}
                   duration={500}>
                   <p className="body--regular" onClick={closeMobileMenu}>
                     Features
@@ -155,7 +155,7 @@ export default function Nav() {
                   to="partners"
                   spy={true}
                   smooth={true}
-                  offset={-100}
+                  offset={-110}
                   duration={500}>
                   <p className="body--regular" onClick={closeMobileMenu}>
                     Partners
@@ -168,7 +168,7 @@ export default function Nav() {
                   to="apply"
                   spy={true}
                   smooth={true}
-                  offset={-100}
+                  offset={-110}
                   duration={500}>
                   <p className="body--regular" onClick={closeMobileMenu}>
                     Apply
@@ -181,7 +181,7 @@ export default function Nav() {
                   to="contact"
                   spy={true}
                   smooth={true}
-                  offset={-100}
+                  offset={-110}
                   duration={500}>
                   <p className="body--regular" onClick={closeMobileMenu}>
                     Contact
@@ -204,7 +204,7 @@ export default function Nav() {
                 to="features"
                 spy={true}
                 smooth={true}
-                offset={-70}
+                offset={-110}
                 duration={500}>
                 <p className="body--regular">Features</p>
               </ScrollLink>
@@ -215,7 +215,7 @@ export default function Nav() {
                 to="partners"
                 spy={true}
                 smooth={true}
-                offset={-70}
+                offset={-110}
                 duration={500}>
                 <p className="body--regular">Partners</p>
               </ScrollLink>
@@ -226,7 +226,7 @@ export default function Nav() {
                 to="apply"
                 spy={true}
                 smooth={true}
-                offset={-70}
+                offset={-110}
                 duration={500}>
                 <p className="body--regular">Apply</p>
               </ScrollLink>
@@ -237,7 +237,7 @@ export default function Nav() {
                 to="contact"
                 spy={true}
                 smooth={true}
-                offset={-70}
+                offset={-110}
                 duration={500}>
                 <p className="body--regular">Contact</p>
               </ScrollLink>
