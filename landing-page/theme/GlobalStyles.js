@@ -24,6 +24,8 @@ const GlobalStyles = createGlobalStyle`
       --success: #A4CFA2;
       --warning: #FCD996;
       --error: #F27982;
+
+      --bs: 0 0.625rem 2.5rem -0.4375rem var(--grey800);
     }
 
     html {
