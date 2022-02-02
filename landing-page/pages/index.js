@@ -15,11 +15,15 @@ import { features } from "../lib/config";
 import media from "../lib/mediaQueries";
 
 const MainStyles = styled.main`
-  & section:not(:last-child, :first-child) {
-    margin-bottom: 10rem;
+  & > *:not(:last-child, :first-child) {
+    border-bottom: 1px solid var(--grey700);
+
+    margin-bottom: 5rem;
+    padding-bottom: 5rem;
 
     ${media.laptop} {
-      margin-bottom: 15rem;
+      margin-bottom: 7.5rem;
+      padding-bottom: 7.5rem;
     }
   }
 
@@ -45,25 +49,21 @@ const MainStyles = styled.main`
   }
 
   .partner-apply-container {
-    margin-bottom: 10rem;
-    padding: 0 1.5rem 4rem 1.5rem;
+    margin-bottom: 5rem;
+    padding: 0 1.5rem 5rem 1.5rem;
 
     ${media.laptop} {
       display: flex;
       align-items: flex-start;
       justify-content: center;
 
-      padding: 0 4rem 4rem 4rem;
-      margin-bottom: 15rem;
+      padding: 0 4rem 7.5rem 4rem;
+      margin-bottom: 7.5rem;
       /* width: 80%; */
 
       & > section {
         flex-basis: 50%;
       }
-    }
-
-    ${media.laptop} {
-      padding: 0 10rem;
     }
   }
 `;
@@ -153,14 +153,14 @@ const FeaturesStyles = styled.section`
 
   width: 100%;
 
-  padding: 0 1.5rem 4rem 1.5rem;
+  padding: 0 1.5rem 0rem 1.5rem;
 
   ${media.tablet} {
-    padding: 0 4rem 4rem 4rem;
+    padding: 0 4rem 0rem 4rem;
   }
 
   ${media.laptop} {
-    padding: 0 10rem 4rem 10rem;
+    padding: 0 10rem 0rem 10rem;
   }
 
   & div:not(:last-child) {
@@ -188,13 +188,34 @@ const FeaturesStyles = styled.section`
 
 const PartnerStyles = styled.section`
   text-align: center;
+
   position: relative;
 
-  margin-bottom: 10rem;
+  margin-bottom: 5rem;
+  padding-bottom: 5rem;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--grey700);
+
+    width: 100vw;
+    height: 1px;
+
+    ${media.laptop} {
+      display: none;
+    }
+  }
 
   ${media.laptop} {
+    border-bottom: none;
+
     margin-bottom: 0;
     padding-right: 3rem;
+    padding-bottom: 0;
   }
 
   p {
