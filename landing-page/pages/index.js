@@ -419,9 +419,6 @@ export default function Home() {
               We would love to hear from you! Reach out to learn more or apply
               to join our team.
             </p>
-            <p className="body--regular">
-              Stay tuned for exciting new developments!
-            </p>
           </div>
           <ContactForm />
         </ContactStyles>

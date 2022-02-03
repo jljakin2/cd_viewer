@@ -53,6 +53,11 @@ const NavStyles = styled.nav`
   li:not(:nth-last-child(1)) {
     margin-right: 4rem;
   }
+
+  a {
+    text-decoration: none;
+    color: var(--white);
+  }
 `;
 
 const MobileMenuStyles = styled.div`
@@ -221,15 +226,9 @@ export default function Nav() {
               </ScrollLink>
             </li>
             <li>
-              <ScrollLink
-                activeClass="active"
-                to="apply"
-                spy={true}
-                smooth={true}
-                offset={-110}
-                duration={500}>
+              <a href="https://angel.co/company/candelytics/jobs">
                 <p className="body--regular">Apply</p>
-              </ScrollLink>
+              </a>
             </li>
             <li>
               <ScrollLink
