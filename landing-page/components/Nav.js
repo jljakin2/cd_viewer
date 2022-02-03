@@ -54,7 +54,7 @@ const NavStyles = styled.nav`
     margin-right: 4rem;
   }
 
-  a {
+  .apply-link {
     text-decoration: none;
     color: var(--white);
   }
@@ -226,7 +226,9 @@ export default function Nav() {
               </ScrollLink>
             </li>
             <li>
-              <a href="https://angel.co/company/candelytics/jobs">
+              <a
+                className="apply-link"
+                href="https://angel.co/company/candelytics/jobs">
                 <p className="body--regular">Apply</p>
               </a>
             </li>
