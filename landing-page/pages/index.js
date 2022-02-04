@@ -389,7 +389,7 @@ export default function Home() {
             <h1 className="heading section-title">Partners</h1>
             <p className="body--regular">
               AFWERX · Harvard · MIT · US Navy · US Air Force · Google for
-              Startups · Penfed Foundation · Mass Challenge · Leica · National
+              Startups · PenFed Foundation · MassChallenge · Leica · National
               Security Innovation Network
             </p>
           </PartnerStyles>
