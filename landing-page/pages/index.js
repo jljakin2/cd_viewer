@@ -179,6 +179,7 @@ const FeaturesStyles = styled.section`
     ${media.laptop} {
       flex-direction: row;
       justify-content: space-between;
+      align-items: flex-start;
       column-gap: 8rem;
 
       width: 100%;
